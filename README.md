@@ -1,2 +1,2 @@
-# menu-serve-app
-Front end web application for menu serve.
+# Menu serve web application.
+Menu serve is a front end progressive web application.
