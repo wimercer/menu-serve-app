@@ -23,9 +23,10 @@ var filesToCache = [
     '/index.html',
 
     // scripts
-    //'/scripts/app.js',
+    '/scripts/app.js',
 
     // styles
+    '/styles/app.css'
 
     // images
 

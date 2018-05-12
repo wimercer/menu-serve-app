@@ -5,15 +5,55 @@
 <head>
     <meta charset="utf-8" />
     <title>Menu serve</title>
-    <link rel="manifest" href="/manifest.json">
+    <!--TODO: add homepage url-->
+    <!--<link rel="canonical" href="" type="text/html">-->
+    <link rel="manifest" href="/manifest.json" type="application/json+oembed">
+    <link rel="stylesheet" href="styles/app.css" type="text/css"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Weather PWA">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
 </head>
 
 <body>
-    <p>Menu serve web application stub.</p>
-    <br />
-    <button type="button" id="testButton">Test button</button>
 
-    <!--scripts-->
+    <!--application header-->
+    <header class="header">
+        <h1 class="header__title">Menu service</h1>
+    </header>
+
+    <!--application main body-->
+    <main class="main">
+
+        <p>Welcome page</p>
+
+        <br />
+
+        <div><-- Carousel placeholder --></div>
+
+        <br />
+
+        <button id="butMenuPage" type="button" aria-label="Add">Menu</button>
+
+    </main>
+    
+    <!--application loader-->
+    <div class="loader">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+    </div>
+
+    <!--application scripts-->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
 </body>
 </html>

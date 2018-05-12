@@ -17,9 +17,9 @@
     'use strict';
 
     var app = {
-        isLoading: true
+        isLoading: true,
+        spinner: document.querySelector('.loader')
     };
-
 
     /*****************************************************************************
      *
@@ -27,12 +27,11 @@
      *
      ****************************************************************************/
 
-    document.getElementById('testButton').addEventListener('click', function () {
+    document.getElementById('butMenuPage').addEventListener('click', function () {
 
-        alert('Yay! ' + app.isLoading);
+        alert('Go to menu page');
 
     });
-
 
     /*****************************************************************************
      *
@@ -40,7 +39,14 @@
      *
      ****************************************************************************/
 
-   // something
+    app.updateView = function (data) {
+
+        if (app.isLoading) {
+            app.spinner.setAttribute('hidden', true);
+            app.isLoading = false;
+        }
+
+    }
 
     /*****************************************************************************
      *
@@ -60,5 +66,7 @@
             .register('./service-worker.js')
             .then(function () { console.log('Service Worker Registered'); });
     }
+
+    app.updateView();
 
 })();
