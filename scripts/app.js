@@ -21,16 +21,31 @@
         spinner: document.querySelector('.loader')
     };
 
+    var about = document.getElementById('about');
+
     /*****************************************************************************
      *
      * Event listeners for UI elements
      *
      ****************************************************************************/
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            about.style.display = "none";
+        }
+    } 
 
     document.getElementById('butMenuPage').addEventListener('click', function () {
 
         alert('Go to menu page');
 
+    });
+
+    document.getElementById('butAbout').addEventListener('click', function () {
+        about.style.display = "block";
+    });
+
+    document.getElementsByClassName("close")[0].addEventListener('click', function () {
+        about.style.display = "none";
     });
 
     /*****************************************************************************

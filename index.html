@@ -3,6 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    
     <meta charset="utf-8" />
     <title>Menu serve</title>
     <!--TODO: add homepage url-->
@@ -25,34 +26,48 @@
 
 <body>
 
-    <!--application header-->
+    <!--header-->
     <header class="header">
-        <h1 class="header__title">Menu service</h1>
+        <h1 class="header__title">Restaurant menu service</h1>
+        <button id="butAbout" class="headerButton" aria-label="About"></button>
     </header>
 
-    <!--application main body-->
+    <!--main body-->
     <main class="main">
 
         <p>Welcome page</p>
 
         <br />
 
-        <div><-- Carousel placeholder --></div>
+        <div>-- Carousel placeholder --</div>
 
         <br />
 
         <button id="butMenuPage" type="button" aria-label="Add">Menu</button>
 
     </main>
-    
-    <!--application loader-->
+
+    <!--about modal-->
+    <div id="about" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About</h2>
+            <h3>Menu serve</h3>
+            <p>Version: 1.0</p>
+            <p>GitHub <a href="https://github.com/wimercer/menu-serve-app">repository</a>
+            <h4>Acknowledgement</h4>
+            <p>Icon pack by <a href="https://icons8.com">Icons8</a></p>
+        </div>
+    </div>
+
+    <!--loader animation-->
     <div class="loader">
         <svg viewBox="0 0 32 32" width="32" height="32">
             <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
         </svg>
     </div>
 
-    <!--application scripts-->
+    <!--scripts-->
     <script type="text/javascript" src="/scripts/app.js"></script>
 
 </body>

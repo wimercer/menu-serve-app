@@ -26,10 +26,10 @@ var filesToCache = [
     '/scripts/app.js',
 
     // styles
-    '/styles/app.css'
+    '/styles/app.css',
 
     // images
-
+    '/images/icons8-info.svg'
 ];
 
 // Install and cache application files
