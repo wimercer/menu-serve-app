@@ -1,11 +1,70 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+    
     <meta charset="utf-8" />
     <title>Menu serve</title>
+    <!--TODO: add homepage url-->
+    <!--<link rel="canonical" href="" type="text/html">-->
+    <link rel="icon" href="/images/icons/favicon.ico" type="image/x-icon"/>
+    <link rel="manifest" href="/manifest.json" type="application/json+oembed">
+    <link rel="stylesheet" href="/styles/app.css" type="text/css"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
-    <p>Menu serve web application stub.</p>
+
+    <!--header-->
+    <header class="header">
+        <h1 class="header__title">Restaurant menu service</h1>
+        <button id="butAbout" class="headerButton" aria-label="About"></button>
+    </header>
+
+    <!--main body-->
+    <main class="main">
+
+        <p>Welcome page</p>
+
+        <br />
+
+        <div>-- Carousel placeholder --</div>
+
+        <br />
+
+        <button id="butMenuPage" type="button" aria-label="Add">Menu</button>
+
+    </main>
+
+    <!--about modal-->
+    <div id="about" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About</h2>
+            <h3>Menu serve</h3>
+            <p>Version: 1.0</p>
+            <p>GitHub <a href="https://github.com/wimercer/menu-serve-app">repository</a></p>
+            <h4>Acknowledgments</h4>
+            <ul>
+                <li><p>Icon pack by <a href="https://icons8.com">Icons8</a></p></li>
+                <li><p>Based on GitHub <a href="https://github.com/googlecodelabs/your-first-pwapp">repository</a> by <a href="https://github.com/googlecodelabs">Google Codelabs</a></p></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--loader animation-->
+    <div class="loader">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+    </div>
+
+    <!--scripts-->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
 </body>
 </html>
