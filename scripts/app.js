@@ -29,7 +29,7 @@
      *
      ****************************************************************************/
     window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target == about) {
             about.style.display = "none";
         }
     } 

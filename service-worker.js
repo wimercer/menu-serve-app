@@ -29,7 +29,15 @@ var filesToCache = [
     '/styles/app.css',
 
     // images
-    '/images/icons8-info.svg'
+    '/images/icons/favicon.ico',
+    '/images/icons/icons8-for-you-filled-128.png',
+    '/images/icons/icons8-for-you-filled-144.png',
+    '/images/icons/icons8-for-you-filled-152.png',
+    '/images/icons/icons8-for-you-filled-192.png',
+    '/images/icons/icons8-for-you-filled-256.png',
+    '/images/icons/icons8-for-you-filled-32.png',
+    '/images/icons/icons8-for-you-filled-500.png',
+    '/images/icons/icons8-info.svg'
 ];
 
 // Install and cache application files
