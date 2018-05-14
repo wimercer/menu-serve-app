@@ -9,7 +9,7 @@
       "type": "image/png"
     },
     {
-      "src": "images/icons/icons8-for-you-filled-144.pngg",
+      "src": "images/icons/icons8-for-you-filled-144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
@@ -34,7 +34,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#3E4EB8",
