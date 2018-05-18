@@ -153,13 +153,48 @@ body {
 
     .loader #spinner {
         box-sizing: border-box;
-        stroke: #673AB7;
+        stroke: #444;
         stroke-width: 3px;
         -webkit-transform-origin: 50%;
         transform-origin: 50%;
         -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
         animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+        fill: none;
     }
+
+.roundButton {
+    width: 20vw;
+    height: 20vw;
+    left: 86%;
+    top: 90%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    float: right;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .roundButton, .menu {
+        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
+        background-color: #444444;
+        background-size: 40px 40px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .roundButton, .menu {
+        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
+        background-color: #444444;
+    }
+}
+
+.slick-container {
+
+}
 
 .modal {
     display: none; /* Hidden by default */

@@ -51,20 +51,20 @@ self.addEventListener('install', function (event) {
     );
 });
 
-//// Activate 
+// Activate 
 self.addEventListener('activate', function (event) {
     console.log('[ServiceWorker] Activate');
-//    event.waitUntil(
-//        caches.keys().then(function (keyList) {
-//            return Promise.all(keyList.map(function (key) {
-//                if (key !== cacheName && key !== dataCacheName) {
-//                    console.log('[ServiceWorker] Removing old cache', key);
-//                    return caches.delete(key);
-//                }
-//            }));
-//        })
-//    );
-//    return self.clients.claim();
+    event.waitUntil(
+        caches.keys().then(function (keyList) {
+            return Promise.all(keyList.map(function (key) {
+                if (key !== cacheName && key !== dataCacheName) {
+                    console.log('[ServiceWorker] Removing old cache', key);
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
+    return self.clients.claim();
 });
 
 
