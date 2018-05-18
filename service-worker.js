@@ -24,11 +24,18 @@ var filesToCache = [
 
     // scripts
     '/scripts/app.js',
+    '/scripts/jquery-3.3.1.min.js',
+    '/scripts/slick.min.js',
 
     // styles
     '/styles/app.css',
+    '/styles/slick.css',
+    '/styles/slick-theme.css', 
 
     // images
+    '/images/home/welcome.jpg',
+    '/images/home/1.jpg',
+    '/images/home/2.jpg',
     '/images/icons/favicon.ico',
     '/images/icons/icons8-for-you-filled-128.png',
     '/images/icons/icons8-for-you-filled-144.png',
