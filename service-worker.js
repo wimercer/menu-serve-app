@@ -41,9 +41,9 @@ var filesToCache = [
 ];
 
 // Install and cache application files
-self.addEventListener('install', function (e) {
+self.addEventListener('install', function (event) {
     console.log('[ServiceWorker] Install');
-    e.waitUntil(
+    event.waitUntil(
         caches.open(cacheName).then(function (cache) {
             console.log('[ServiceWorker] Caching app shell');
             return cache.addAll(filesToCache);
@@ -52,9 +52,9 @@ self.addEventListener('install', function (e) {
 });
 
 // Activate 
-self.addEventListener('activate', function (e) {
+self.addEventListener('activate', function (event) {
     console.log('[ServiceWorker] Activate');
-    e.waitUntil(
+    event.waitUntil(
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
                 if (key !== cacheName && key !== dataCacheName) {
@@ -65,4 +65,13 @@ self.addEventListener('activate', function (e) {
         })
     );
     return self.clients.claim();
+});
+
+
+self.addEventListener('fetch', function (event) {
+    console.log('fetch');
+});
+
+self.addEventListener('push', function (event) {
+    console.log('push');
 });

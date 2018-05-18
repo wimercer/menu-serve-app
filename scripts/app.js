@@ -29,7 +29,7 @@
      *
      ****************************************************************************/
     window.onclick = function (event) {
-        if (event.target == about) {
+        if (event.target === about) {
             about.style.display = "none";
         }
     } 
@@ -61,7 +61,20 @@
             app.isLoading = false;
         }
 
+        $(document).ready(function () {
+            $('.slick').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                mobileFirst: true,
+                autoplay: true,
+            });
+        });
+
     }
+    
 
     /*****************************************************************************
      *
@@ -78,7 +91,7 @@
      ************************************************************************/
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('./service-worker.js')
+            .register('service-worker.js')
             .then(function () { console.log('Service Worker Registered'); });
     }
 
