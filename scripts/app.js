@@ -65,17 +65,19 @@
             $('.slick').slick({
                 dots: true,
                 infinite: true,
-                speed: 500,
+                speed: 800,
                 fade: true,
-                cssEase: 'linear',
                 mobileFirst: true,
                 autoplay: true,
+                arrows: false,
+                draggable: true,
+                swipe: true,
+                touchMove: true
             });
         });
 
     }
     
-
     /*****************************************************************************
      *
      * Methods for dealing with the model

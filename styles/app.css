@@ -14,6 +14,31 @@
  * limitations under the License.
  */
 
+@media only screen and (min-width: 200px) {
+    .roundButton.menu {
+        background-size: 40px 40px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .roundButton.menu {
+        background-size: 70px 70px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .roundButton.menu {
+        background-size: 100px 100px;
+    }
+}
+
+@media only screen and (min-device-height: 900px) {
+    .roundButton.menu {
+        left: 85%;
+        top: 80%;
+    }
+}
+
 * {
     box-sizing: border-box;
 }
@@ -141,6 +166,42 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+/* buttons and controls */
+.roundButton {
+    width: 20vw;
+    height: 20vw;
+    left: 85%;
+    top: 90%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    float: right;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.menu {
+    background: url(/images/icons/icons8-menu.svg) center center no-repeat;
+    background-color: #444444;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
 /* components */
 
 .loader {
@@ -162,46 +223,27 @@ body {
         fill: none;
     }
 
-.roundButton {
-    width: 20vw;
-    height: 20vw;
-    left: 86%;
-    top: 90%;
-    position: fixed;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    float: right;
-    cursor: pointer;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-
-@media only screen and (max-width: 600px) {
-    .roundButton, .menu {
-        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
-        background-color: #444444;
-        background-size: 40px 40px;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .roundButton, .menu {
-        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
-        background-color: #444444;
-    }
-}
-
 .slick-container {
-   width: 100vw;
-   height: 100vh;
+   width: 100%;
+   height: 95%;
 }
 
-    .slick-container .slide {
-        width: 100%;
-        height: 100%;
-        background-size: 100%;
-    }
+.slick {
+    width: 100%;
+    height: 100%;
+}
+
+.slick-list {
+    width: 100%;
+    height: 100%;
+}
+
+img.slick-content {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    background-size: cover;
+}
 
 .modal {
     display: none; /* Hidden by default */
@@ -222,21 +264,8 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    font-size:x-small;
 }
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    } 
 
 /* webkits */
 
