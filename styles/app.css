@@ -193,8 +193,15 @@ body {
 }
 
 .slick-container {
-
+   width: 100vw;
+   height: 100vh;
 }
+
+    .slick-container .slide {
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+    }
 
 .modal {
     display: none; /* Hidden by default */
