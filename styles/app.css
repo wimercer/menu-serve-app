@@ -243,6 +243,8 @@ img.slick-content {
     height: 100%;
     vertical-align: middle;
     background-size: cover;
+    top: 50%;
+    left: 50%;
 }
 
 .modal {
