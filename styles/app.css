@@ -18,18 +18,28 @@
     .roundButton.menu {
         background-size: 40px 40px;
     }
-}
+    .slick-dots li button:before {
+        font-size: 30px !important;
+    }
 
 @media only screen and (min-width: 600px) {
     .roundButton.menu {
         background-size: 70px 70px;
     }
+    .slick-dots li button:before {
+        font-size: 60px !important;
+    }
+
 }
 
 @media only screen and (min-width: 800px) {
     .roundButton.menu {
         background-size: 100px 100px;
     }
+    .slick-dots li button:before {
+        font-size: 90px !important;
+    }
+
 }
 
 @media only screen and (min-device-height: 900px) {
@@ -245,6 +255,11 @@ img.slick-content {
     background-size: cover;
     top: 50%;
     left: 50%;
+}
+
+li slick slick-dots {
+    height: 40px;
+    width: 40px;
 }
 
 .modal {
