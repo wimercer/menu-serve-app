@@ -29,13 +29,13 @@
       "type": "image/png"
     },
     {
-      "src": "images/icons/icons8-for-you-filled-500.png",
-      "sizes": "500x500",
+      "src": "images/icons/icons8-for-you-filled-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "/index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#444444",
   "theme_color": "#444444"

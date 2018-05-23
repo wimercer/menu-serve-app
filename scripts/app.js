@@ -91,10 +91,18 @@
      * Code required to start the app
      *
      ************************************************************************/
+
+    // Register service worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('service-worker.js')
-            .then(function () { console.log('Service Worker Registered'); });
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+                // Registration was successful
+                console.log('[Application] ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('[Application] ServiceWorker registration failed: ', err);
+            });
+        });
     }
 
     app.updateView();
