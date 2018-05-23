@@ -61,7 +61,7 @@ self.addEventListener('install', function (event) {
     );
 });
 
-// Fetch
+// Fetch files from cache or server
 self.addEventListener('fetch', function (event) {
     console.log('[ServiceWorker] Fetching ' + event.request.url + ' ...');
     event.respondWith(
@@ -77,6 +77,7 @@ self.addEventListener('fetch', function (event) {
     );
 });
 
+// TODO work out why the cache fails
 //self.addEventListener('activate', function (event) {
 
 //    // Caches to handle
@@ -109,10 +110,5 @@ self.addEventListener('activate', function (event) {
 
 // Push notifications
 self.addEventListener('push', function (event) {
-
     console.log('[ServiceWorker] Push ' + event.response);
-
-    e.waitUntil(
-        self.registration.showNotification('Hello world!')
-    );
 });
