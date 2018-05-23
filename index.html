@@ -3,68 +3,93 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    
+
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#444444" />
+
     <title>Menu serve</title>
     <!--TODO: add homepage url-->
     <!--<link rel="canonical" href="" type="text/html">-->
-    <link rel="icon" href="/images/icons/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/images/icons/favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="/manifest.json" type="application/json+oembed">
-    <link rel="stylesheet" href="/styles/app.css" type="text/css"/>
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/styles/app.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/slick.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/slick-theme.css" type="text/css" />
+
+    <script type="text/javascript" src="/scripts/jquery-3.3.1.min.js"></script>
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Menu serve">
+    <link rel="apple-touch-icon" href="/images/icons/icons8-for-you-filled-152.png">
+    <meta name="msapplication-TileImage" content="/images/icons/icons8-for-you-filled-144.png">
+    <meta name="msapplication-TileColor" content="#444">
 
 </head>
 
 <body>
 
-    <!--header-->
+    <!-- header -->
     <header class="header">
         <h1 class="header__title">Restaurant menu service</h1>
         <button id="butAbout" class="headerButton" aria-label="About"></button>
     </header>
 
-    <!--main body-->
+    <!-- main body -->
     <main class="main">
 
-        <p>Welcome page</p>
-
-        <br />
-
-        <div>-- Carousel placeholder --</div>
-
-        <br />
-
-        <button id="butMenuPage" type="button" aria-label="Add">Menu</button>
+        <!-- carousel -->
+        <div class="slick-container">
+            <div class="slick">
+                <!-- 1 - menu home -->
+                <div><img class="slick-content" src="/images/home/1-menu-cover.jpg"></div>
+                <!-- 2 - promo -->
+                <div><img class="slick-content" src="/images/home/2-promo.jpg"></div>
+                <!-- 3 - promo -->
+                <div><img class="slick-content" src="/images/home/3-promo.jpg"></div>
+            </div>
+        </div>
 
     </main>
 
-    <!--about modal-->
+    <!-- Controls and components -->
+    <!-- round menu button -->
+    <div class="roundButton menu" id="butMenuPage"></div>
+
+    <!-- about modal -->
     <div id="about" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>About</h2>
             <h3>Menu serve</h3>
             <p>Version: 1.0</p>
-            <p>GitHub <a href="https://github.com/wimercer/menu-serve-app">repository</a></p>
+            <p>GitHub <a href="https://github.com/wimercer/menu-serve-app" target="_blank">repository</a></p>
             <h4>Acknowledgments</h4>
             <ul>
-                <li><p>Icon pack by <a href="https://icons8.com">Icons8</a></p></li>
-                <li><p>Based on GitHub <a href="https://github.com/googlecodelabs/your-first-pwapp">repository</a> by <a href="https://github.com/googlecodelabs">Google Codelabs</a></p></li>
+                <li>Icon pack by <a href="https://icons8.com" target="_blank">Icons8</a></li>
+                <li>Based on GitHub <a href="https://github.com/googlecodelabs/your-first-pwapp" target="_blank">repository</a> by <a href="https://github.com/googlecodelabs">Google Codelabs</a></li>
+                <li>Carousel by <a href="http://kenwheeler.github.io/slick/" target="_blank">Ken Wheeler</a></li>
             </ul>
         </div>
     </div>
 
-    <!--loader animation-->
+    <!-- loader animation -->
     <div class="loader">
         <svg viewBox="0 0 32 32" width="32" height="32">
-            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+            <circle id="spinner" cx="16" cy="16" r="14"></circle>
         </svg>
     </div>
 
-    <!--scripts-->
+    <!-- no script -->
+    <!--<noscript>Your browser does not support JavaScript!</noscript>-->
+
+    <!-- scripts -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/slick.min.js"></script>
 
 </body>
 </html>

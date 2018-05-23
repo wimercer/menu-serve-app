@@ -29,7 +29,7 @@
      *
      ****************************************************************************/
     window.onclick = function (event) {
-        if (event.target == about) {
+        if (event.target === about) {
             about.style.display = "none";
         }
     } 
@@ -61,8 +61,23 @@
             app.isLoading = false;
         }
 
-    }
+        $(document).ready(function () {
+            $('.slick').slick({
+                dots: true,
+                infinite: true,
+                speed: 800,
+                fade: true,
+                mobileFirst: true,
+                autoplay: true,
+                arrows: false,
+                draggable: true,
+                swipe: true,
+                touchMove: true
+            });
+        });
 
+    }
+    
     /*****************************************************************************
      *
      * Methods for dealing with the model
@@ -76,10 +91,18 @@
      * Code required to start the app
      *
      ************************************************************************/
+
+    // Register service worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('./service-worker.js')
-            .then(function () { console.log('Service Worker Registered'); });
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+                // Registration was successful
+                console.log('[Application] ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('[Application] ServiceWorker registration failed: ', err);
+            });
+        });
     }
 
     app.updateView();
