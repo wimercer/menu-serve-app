@@ -77,7 +77,7 @@ self.addEventListener('fetch', function (event) {
     );
 });
 
-// TODO work out why the cache fails
+// TODO work out why the cache fails 
 //self.addEventListener('activate', function (event) {
 
 //    // Caches to handle
