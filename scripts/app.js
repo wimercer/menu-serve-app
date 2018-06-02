@@ -34,10 +34,14 @@
         }
     } 
 
-    document.getElementById('butMenuPage').addEventListener('click', function () {
+    document.getElementById('butGoToHomePage').addEventListener('click', function () {
+        // Go Home
+        window.location.href = '/'
+    });
 
-        alert('Go to menu page');
-
+    document.getElementById('butGoToMenuPage').addEventListener('click', function () {
+        // Go to menu
+        window.location.href = '/menu.html'
     });
 
     document.getElementById('butAbout').addEventListener('click', function () {

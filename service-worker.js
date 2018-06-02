@@ -23,6 +23,7 @@ var appFilesToCache = [
     // pages
     '/',
     '/index.html',
+    '/menu.html',
 
     // scripts
     '/scripts/app.js',
