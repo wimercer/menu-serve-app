@@ -23,6 +23,10 @@
 
     var about = document.getElementById('about');
 
+    var homePageButton = document.getElementById('butGoToHomePage'); 
+    var menuPageButton = document.getElementById('butGoToMenuPage'); 
+    var slick = document.getElementById('butGoToMenuPage');
+
     /*****************************************************************************
      *
      * Event listeners for UI elements
@@ -34,15 +38,21 @@
         }
     } 
 
-    document.getElementById('butGoToHomePage').addEventListener('click', function () {
-        // Go Home
-        window.location.href = '/'
-    });
+    if(homePageButton != null) {
 
-    document.getElementById('butGoToMenuPage').addEventListener('click', function () {
-        // Go to menu
-        window.location.href = '/menu.html'
-    });
+        homePageButton.addEventListener('click', function () {
+            // Go Home page
+            window.location.href = '/'
+        });
+    }
+
+    if (menuPageButton != null) {
+
+        menuPageButton.addEventListener('click', function () {
+            // Go Menu page
+            window.location.href = '/menu.html'
+        });
+    }
 
     document.getElementById('butAbout').addEventListener('click', function () {
         about.style.display = "block";
@@ -65,21 +75,22 @@
             app.isLoading = false;
         }
 
-        $(document).ready(function () {
-            $('.slick').slick({
-                dots: true,
-                infinite: true,
-                speed: 800,
-                fade: true,
-                mobileFirst: true,
-                autoplay: true,
-                arrows: false,
-                draggable: true,
-                swipe: true,
-                touchMove: true
+        if (slick != null) {
+            $(document).ready(function () {
+                $('.slick').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 800,
+                    fade: true,
+                    mobileFirst: true,
+                    autoplay: true,
+                    arrows: false,
+                    draggable: true,
+                    swipe: true,
+                    touchMove: true
+                });
             });
-        });
-
+        }
     }
     
     /*****************************************************************************
