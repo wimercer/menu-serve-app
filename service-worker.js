@@ -29,6 +29,7 @@ var appFilesToCache = [
     '/scripts/app.js',
     '/scripts/jquery-3.3.1.min.js',
     '/scripts/slick.min.js',
+    '/vue.min.js',
 
     // styles
     '/styles/app.css',
