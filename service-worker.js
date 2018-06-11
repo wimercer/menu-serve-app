@@ -79,26 +79,24 @@ self.addEventListener('fetch', function (event) {
 });
 
 // TODO work out why the cache fails
-//self.addEventListener('activate', function (event) {
+self.addEventListener('activate', function (event) {
 
-//    // Caches to handle
-//    var cacheWhitelist = [appCache, appDataCache];
-
-//    event.waitUntil(
-//        caches.keys().then(function (cacheNames) {
-//            return Promise.all(
-//                cacheNames.map(function (cacheName) {
-//                    if (cacheWhitelist.indexOf(cacheName) === -1) {
-//                        console.log('[ServiceWorker] Removing ' + cacheName);
-//                        return caches.delete(cacheName);
-//                    }
-//                })
-//            );
-//        })
-//    );
-//});
-
-
+    // Caches to handle
+    var cacheWhitelist = [appCache, appDataCache];
+   
+    event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.map(function (cacheName) {
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('[ServiceWorker] Removing ' + cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
+});
 
 // TODO
 // https://developers.google.com/web/fundamentals/primers/service-workers/
