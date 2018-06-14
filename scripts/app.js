@@ -14,18 +14,19 @@
 
 
 (function () {
+
     'use strict';
 
     var app = {
+
         isLoading: true,
-        spinner: document.querySelector('.loader')
+        spinner: document.querySelector('.loader'),
+        about: document.getElementById('about'),
+        close: document.getElementsByClassName("close")[0],
+        slick: document.getElementById('slick'),
+        homePageButton: document.getElementById('butGoToHomePage'),
+        menuPageButton: document.getElementById('butGoToMenuPage')
     };
-
-    var about = document.getElementById('about');
-
-    var homePageButton = document.getElementById('butGoToHomePage'); 
-    var menuPageButton = document.getElementById('butGoToMenuPage'); 
-    var slick = document.getElementById('butGoToMenuPage');
 
     /*****************************************************************************
      *
@@ -33,32 +34,32 @@
      *
      ****************************************************************************/
     window.onclick = function (event) {
-        if (event.target === about) {
-            about.style.display = "none";
+        if (event.target === app.about) {
+            app.about.style.display = "none";
         }
-    } 
+    }
 
-    if(homePageButton != null) {
+    if(app.homePageButton !== null) {
 
-        homePageButton.addEventListener('click', function () {
+        app.homePageButton.addEventListener('click', function () {
             // Go Home page
-            window.location.href = '/'
+            window.location.href = '/';
         });
     }
 
-    if (menuPageButton != null) {
+    if (app.menuPageButton !== null) {
 
-        menuPageButton.addEventListener('click', function () {
+        app.menuPageButton.addEventListener('click', function () {
             // Go Menu page
-            window.location.href = '/menu.html'
+            window.location.href = '/menu.html';
         });
     }
 
-    document.getElementById('butAbout').addEventListener('click', function () {
+    app.about.addEventListener('click', function () {
         about.style.display = "block";
     });
 
-    document.getElementsByClassName("close")[0].addEventListener('click', function () {
+    app.close.addEventListener('click', function () {
         about.style.display = "none";
     });
 
@@ -72,10 +73,13 @@
 
         if (app.isLoading) {
             app.spinner.setAttribute('hidden', true);
+
+            /* Process stuff here */
+            
             app.isLoading = false;
         }
 
-        if (slick != null) {
+        if (app.slick !== null) {
             $(document).ready(function () {
                 $('.slick').slick({
                     dots: true,
@@ -98,9 +102,23 @@
      * Methods for dealing with the model
      *
      ****************************************************************************/
+    caches.open('menu-data').then(function (cache) {
+        console.log(cache.keys);
+        return cache;
+    })
 
-    // something
-    
+
+    var menuItems = new Vue({
+        el: '#menu-items',
+        data: {
+            //menuItems: caches.open('menu-data').then(function (cache) {
+            //    console.log(cache.keys);
+            //    return cache;
+
+            menuItems: [{ id: 1 }, { id: 2 }]
+        }
+    })
+
     /************************************************************************
      *
      * Code required to start the app

@@ -15,10 +15,10 @@
 // limitations under the License.
 
 
-var appCache = 'menu-serve-PWA-v1';
-var appDataCache= 'menu-serve-PWA-data-v1';
+var appFilesCacheName = 'menu-serve-v1';
+var menuDataCacheName = 'menu-data';
 
-var appFilesToCache = [
+var filesToCache = [
 
     // pages
     '/',
@@ -29,7 +29,7 @@ var appFilesToCache = [
     '/scripts/app.js',
     '/scripts/jquery-3.3.1.min.js',
     '/scripts/slick.min.js',
-    '/vue.min.js',
+    '/scripts/vue.min.js',
 
     // styles
     '/styles/app.css',
@@ -53,60 +53,74 @@ var appFilesToCache = [
 
 // Install and cache application files
 self.addEventListener('install', function (event) {
+
     console.log('[ServiceWorker] Installing application...');
+
     event.waitUntil(
-        caches.open(appCache)
+    
+        caches.open(appFilesCacheName)
             .then(function (cache) {
-                console.log('[ServiceWorker] Opened application cache');
-                return cache.addAll(appFilesToCache);
+                console.log('[ServiceWorker] ...opened cache: ' + appFilesCacheName);
+                return cache.addAll(filesToCache);
+            }),
+        
+        caches.open(menuDataCacheName)
+            .then(function (cache) {
+                console.log('[ServiceWorker] ...opened cache: ' + menuDataCacheName);
+                return cache.add(new Request('https://dev-menu-serve-api.azurewebsites.net/api/menu'));
             })
     );
+    
+    console.log('...installed.');
 });
 
 // Fetch files from cache or server
 self.addEventListener('fetch', function (event) {
+
     console.log('[ServiceWorker] Fetching ' + event.request.url + ' ...');
+
     event.respondWith(
+
         caches.match(event.request)
             .then(function (response) {
                 if (response) {
-                    console.log('[ServiceWorker] ...fetched from cache');
+                    console.log('[ServiceWorker] ... ' + response.url + ' fetched from cache');
+                    //console.log('[ServiceWorker] ... ' + event.request.url + ' fetched from cache');
                     return response;
                 }
-                console.log('[ServiceWorker] ...fetched from server');
+                console.log('[ServiceWorker] ... ' + event.request.url + ' fetched from server');
                 return fetch(event.request);
             })
     );
 });
 
-// TODO work out why the cache fails
 self.addEventListener('activate', function (event) {
 
-    // Caches to handle
-    var cacheWhitelist = [appCache, appDataCache];
-   
+    // Caches to keep
+    //var cacheWhitelist = [appFilesCacheName];
+    var cacheWhitelist = [appFilesCacheName, menuDataCacheName];
+
+    console.log('[ServiceWorker] Activating...');
+
     event.waitUntil(
+
         caches.keys().then(function (cacheNames) {
             return Promise.all(
                 cacheNames.map(function (cacheName) {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
-                        console.log('[ServiceWorker] Removing ' + cacheName);
+                        console.log('[ServiceWorker] ...removing ' + cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
         })
     );
+
+    console.log('[ServiceWorker] ...activated');
 });
 
-// TODO
+// TODO:
 // https://developers.google.com/web/fundamentals/primers/service-workers/
-
-// Activate
-self.addEventListener('activate', function (event) {
-    console.log('[ServiceWorker] Activate');
-});
-
 
 // Push notifications
 self.addEventListener('push', function (event) {
