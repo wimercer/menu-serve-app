@@ -102,22 +102,91 @@
      * Methods for dealing with the model
      *
      ****************************************************************************/
-    caches.open('menu-data').then(function (cache) {
-        console.log(cache.keys);
-        return cache;
-    })
+    //caches.open('menu-data').then(function (cache) {
+    //    console.log(cache.keys);
+    //    return cache;
+    //})
 
 
     var menuItems = new Vue({
         el: '#menu-items',
         data: {
-            //menuItems: caches.open('menu-data').then(function (cache) {
-            //    console.log(cache.keys);
-            //    return cache;
-
-            menuItems: [{ id: 1 }, { id: 2 }]
+            menuItems: []
+        },
+        mounted() {
+            this.getMenuData()
+        },
+        methods: {
+            getMenuData() {
+                fetch('https://dev-menu-serve-api.azurewebsites.net/api/menu', {
+                    method: 'get',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    mode: 'cors'
+                })
+                //.then((response) => response.json())
+                .then((responseData) => {
+                    console.warn(responseData);
+                    return this.responseData;
+                })
+            }
         }
+
+        
+            
+            //return fetch('https://dev-menu-serve-api.azurewebsites.net/api/menu', {
+            //        method: 'get',
+            //        headers: {
+            //            'Accept': 'application/json',
+            //            'Content-Type': 'application/json'
+            //        },
+            //        mode: 'cors'
+            //    })
+            //    // 
+            //        .then((response) => response.json())
+            //        .then((responseData) => {
+            //            console.warn(responseData);
+            //            return responseData;
+            //        })
+
+
+
+
+
+                //.then(function (response) {
+                //    return response.json();
+                //})
+                //// 
+                //.then(function (jsonMenuData) {
+                //    console.log('[Application] Returning menu data');
+                //    console.log(jsonMenuData);
+                //    return jsonMenuData;
+                //})
+            //menuItems: [{ id: 1, description: 'blah' }, { id: 2, description: 'more blah'}]
+            //}
     })
+
+    //function getvals() {
+    //    return fetch('https://dev-menu-serve-api.azurewebsites.net/api/menu',
+    //        {
+    //            method: "GET",
+    //            headers: {
+    //                'Accept': 'application/json',
+    //                'Content-Type': 'application/json',
+    //            },
+    //        })
+    //        .then((response) => response.json())
+    //        .then((responseData) => {
+    //            console.warn(responseData);
+    //            return responseData;
+    //        })
+    //        .catch(error => console.warn(error));
+    //}
+
+    console.log('[Application] Passing menu data to view');
+    console.log(menuItems);
 
     /************************************************************************
      *

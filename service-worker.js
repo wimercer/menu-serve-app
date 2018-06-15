@@ -70,8 +70,6 @@ self.addEventListener('install', function (event) {
                 return cache.add(new Request('https://dev-menu-serve-api.azurewebsites.net/api/menu'));
             })
     );
-    
-    console.log('...installed.');
 });
 
 // Fetch files from cache or server
@@ -85,7 +83,6 @@ self.addEventListener('fetch', function (event) {
             .then(function (response) {
                 if (response) {
                     console.log('[ServiceWorker] ... ' + response.url + ' fetched from cache');
-                    //console.log('[ServiceWorker] ... ' + event.request.url + ' fetched from cache');
                     return response;
                 }
                 console.log('[ServiceWorker] ... ' + event.request.url + ' fetched from server');
@@ -107,16 +104,21 @@ self.addEventListener('activate', function (event) {
         caches.keys().then(function (cacheNames) {
             return Promise.all(
                 cacheNames.map(function (cacheName) {
+                    console.log('[ServiceWorker] ...checking: ' + cacheName);
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
                         console.log('[ServiceWorker] ...removing ' + cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
-        })
-    );
+        }),
 
-    console.log('[ServiceWorker] ...activated');
+        caches.open(menuDataCacheName)
+            .then(function (cache) {
+                console.log('[ServiceWorker] ...refreshed and opened cache: ' + menuDataCacheName);
+                return cache.add(new Request('https://dev-menu-serve-api.azurewebsites.net/api/menu'));
+            })
+    );
 });
 
 // TODO:
