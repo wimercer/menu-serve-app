@@ -180,9 +180,7 @@ body {
 .roundButton {
     width: 20vw;
     height: 20vw;
-    left: 85%;
-    top: 90%;
-    position: fixed;
+
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     float: right;
@@ -190,12 +188,24 @@ body {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+    /*background-color: #444444;*/
 }
 
-.menu {
-    background: url(/images/icons/icons8-menu.svg) center center no-repeat;
-    background-color: #444444;
-}
+    .roundButton.menu {
+        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
+        background-color: #444444;
+        left: 85%;
+        top: 90%;
+        position: fixed;
+    }
+
+    .roundButton.home {
+        background: url(/images/icons/icons8-home.svg) center center no-repeat;
+        background-color: #444444;
+        left: 15%;
+        top: 90%;
+        position: fixed;
+    }
 
 .close {
     color: #aaa;

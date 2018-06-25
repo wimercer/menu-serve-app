@@ -15,19 +15,22 @@
 // limitations under the License.
 
 
-var appCache = 'menu-serve-PWA-v1';
-var appDataCache= 'menu-serve-PWA-data-v1';
+var appFilesCacheName = 'menu-serve-v1';
+var menuDataCacheName = 'menu-data';
+var menuDataURL = 'https://dev-menu-serve-api.azurewebsites.net/api/menu';
 
-var appFilesToCache = [
+var filesToCache = [
 
     // pages
     '/',
     '/index.html',
-
+    '/menu.html',
+    
     // scripts
     '/scripts/app.js',
     '/scripts/jquery-3.3.1.min.js',
     '/scripts/slick.min.js',
+    '/scripts/vue.min.js',
 
     // styles
     '/styles/app.css',
@@ -46,67 +49,90 @@ var appFilesToCache = [
     '/images/icons/icons8-for-you-filled-256.png',
     '/images/icons/icons8-for-you-filled-32.png',
     '/images/icons/icons8-for-you-filled-500.png',
-    '/images/icons/icons8-info.svg'
+    '/images/icons/icons8-info.svg',
+    '/images/icons/icons8-menu.svg',
+    '/images/icons/icons8-home.svg'
 ];
 
 // Install and cache application files
 self.addEventListener('install', function (event) {
+
     console.log('[ServiceWorker] Installing application...');
+
     event.waitUntil(
-        caches.open(appCache)
+    
+        caches.open(appFilesCacheName)
             .then(function (cache) {
-                console.log('[ServiceWorker] Opened application cache');
-                return cache.addAll(appFilesToCache);
+                console.log('[ServiceWorker] ...opened cache: ' + appFilesCacheName);
+                return cache.addAll(filesToCache);
+            }),
+
+
+        caches.open(menuDataCacheName)
+            .then(function (cache) {
+                console.log('[ServiceWorker] ...opened cache: ' + menuDataCacheName);
+              
+                return cache.add(
+                    new Request(menuDataURL)
+                );
             })
     );
 });
 
 // Fetch files from cache or server
 self.addEventListener('fetch', function (event) {
+
     console.log('[ServiceWorker] Fetching ' + event.request.url + ' ...');
+
     event.respondWith(
+
         caches.match(event.request)
             .then(function (response) {
                 if (response) {
-                    console.log('[ServiceWorker] ...fetched from cache');
+                    console.log('[ServiceWorker] ... ' + response.url + ' fetched from cache');
                     return response;
                 }
-                console.log('[ServiceWorker] ...fetched from server');
+                console.log('[ServiceWorker] ... ' + event.request.url + ' fetched from server');
                 return fetch(event.request);
             })
     );
 });
 
-// TODO work out why the cache fails
-//self.addEventListener('activate', function (event) {
-
-//    // Caches to handle
-//    var cacheWhitelist = [appCache, appDataCache];
-
-//    event.waitUntil(
-//        caches.keys().then(function (cacheNames) {
-//            return Promise.all(
-//                cacheNames.map(function (cacheName) {
-//                    if (cacheWhitelist.indexOf(cacheName) === -1) {
-//                        console.log('[ServiceWorker] Removing ' + cacheName);
-//                        return caches.delete(cacheName);
-//                    }
-//                })
-//            );
-//        })
-//    );
-//});
-
-
-
-// TODO
-// https://developers.google.com/web/fundamentals/primers/service-workers/
-
-// Activate
 self.addEventListener('activate', function (event) {
-    console.log('[ServiceWorker] Activate');
+
+    // Caches to keep
+    //var cacheWhitelist = [appFilesCacheName];
+    var cacheWhitelist = [appFilesCacheName, menuDataCacheName];
+
+    console.log('[ServiceWorker] Activating...');
+
+    event.waitUntil(
+
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.map(function (cacheName) {
+                    console.log('[ServiceWorker] ...checking: ' + cacheName);
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('[ServiceWorker] ...removing ' + cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }),
+
+        caches.open(menuDataCacheName)
+            .then(function (cache) {
+                console.log('[ServiceWorker] ...refreshed and opened cache: ' + menuDataCacheName);
+              
+                return cache.add(
+                    new Request(menuDataURL)
+                );
+            })
+    );
 });
 
+// TODO:
+// https://developers.google.com/web/fundamentals/primers/service-workers/
 
 // Push notifications
 self.addEventListener('push', function (event) {

@@ -14,14 +14,19 @@
 
 
 (function () {
+
     'use strict';
 
     var app = {
-        isLoading: true,
-        spinner: document.querySelector('.loader')
-    };
 
-    var about = document.getElementById('about');
+        isLoading: true,
+        spinner: document.querySelector('.loader'),
+        about: document.getElementById('about'),
+        close: document.getElementsByClassName("close")[0],
+        slick: document.getElementById('slick'),
+        homePageButton: document.getElementById('butGoToHomePage'),
+        menuPageButton: document.getElementById('butGoToMenuPage')
+    };
 
     /*****************************************************************************
      *
@@ -29,22 +34,32 @@
      *
      ****************************************************************************/
     window.onclick = function (event) {
-        if (event.target === about) {
-            about.style.display = "none";
+        if (event.target === app.about) {
+            app.about.style.display = "none";
         }
-    } 
+    }
 
-    document.getElementById('butMenuPage').addEventListener('click', function () {
+    if(app.homePageButton !== null) {
 
-        alert('Go to menu page');
+        app.homePageButton.addEventListener('click', function () {
+            // Go Home page
+            window.location.href = '/';
+        });
+    }
 
-    });
+    if (app.menuPageButton !== null) {
 
-    document.getElementById('butAbout').addEventListener('click', function () {
+        app.menuPageButton.addEventListener('click', function () {
+            // Go Menu page
+            window.location.href = '/menu.html';
+        });
+    }
+
+    app.about.addEventListener('click', function () {
         about.style.display = "block";
     });
 
-    document.getElementsByClassName("close")[0].addEventListener('click', function () {
+    app.close.addEventListener('click', function () {
         about.style.display = "none";
     });
 
@@ -58,24 +73,28 @@
 
         if (app.isLoading) {
             app.spinner.setAttribute('hidden', true);
+
+            /* Process stuff here */
+            
             app.isLoading = false;
         }
 
-        $(document).ready(function () {
-            $('.slick').slick({
-                dots: true,
-                infinite: true,
-                speed: 800,
-                fade: true,
-                mobileFirst: true,
-                autoplay: true,
-                arrows: false,
-                draggable: true,
-                swipe: true,
-                touchMove: true
+        if (app.slick !== null) {
+            $(document).ready(function () {
+                $('.slick').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 800,
+                    fade: true,
+                    mobileFirst: true,
+                    autoplay: true,
+                    arrows: false,
+                    draggable: true,
+                    swipe: true,
+                    touchMove: true
+                });
             });
-        });
-
+        }
     }
     
     /*****************************************************************************
@@ -84,8 +103,30 @@
      *
      ****************************************************************************/
 
-    // something
-    
+    var menuItems = new Vue({
+        el: '#menu-items',
+        data: {
+            
+            menuItems: []
+        },
+        created() {
+
+            this.getMenuData()
+        },
+        methods: {
+
+            getMenuData() {
+
+                // fetch will be caught by service worker
+                fetch('https://dev-menu-serve-api.azurewebsites.net/api/menu')
+                    .then(response => response.json())
+                    .then(json => {
+                        this.menuItems = json;
+                    });
+            }
+        }     
+    })
+
     /************************************************************************
      *
      * Code required to start the app
