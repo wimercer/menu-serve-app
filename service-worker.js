@@ -17,6 +17,7 @@
 
 var appFilesCacheName = 'menu-serve-v1';
 var menuDataCacheName = 'menu-data';
+var menuDataURL = 'https://dev-menu-serve-api.azurewebsites.net/api/menu';
 
 var filesToCache = [
 
@@ -24,7 +25,7 @@ var filesToCache = [
     '/',
     '/index.html',
     '/menu.html',
-
+    
     // scripts
     '/scripts/app.js',
     '/scripts/jquery-3.3.1.min.js',
@@ -63,11 +64,15 @@ self.addEventListener('install', function (event) {
                 console.log('[ServiceWorker] ...opened cache: ' + appFilesCacheName);
                 return cache.addAll(filesToCache);
             }),
-        
+
+
         caches.open(menuDataCacheName)
             .then(function (cache) {
                 console.log('[ServiceWorker] ...opened cache: ' + menuDataCacheName);
-                return cache.add(new Request('https://dev-menu-serve-api.azurewebsites.net/api/menu'));
+              
+                return cache.add(
+                    new Request(menuDataURL)
+                );
             })
     );
 });
@@ -116,7 +121,10 @@ self.addEventListener('activate', function (event) {
         caches.open(menuDataCacheName)
             .then(function (cache) {
                 console.log('[ServiceWorker] ...refreshed and opened cache: ' + menuDataCacheName);
-                return cache.add(new Request('https://dev-menu-serve-api.azurewebsites.net/api/menu'));
+              
+                return cache.add(
+                    new Request(menuDataURL)
+                );
             })
     );
 });

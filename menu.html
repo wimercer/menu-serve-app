@@ -44,9 +44,14 @@
 
         <div id="menu-items">
             <div v-for="item in menuItems">
-                {{ item.id }}
-                {{ item.shortDescription }}
-                {{ item.details }}
+                <p> {{ item.id }} </p>
+                <p> {{ item.shortDescription }} </p>
+                <p> {{ item.details }} </p>
+                <p> {{ item.price }} </p>
+                <p> {{ item.menuCategory.id }} </p>
+                <p> {{ item.menuCategory.name }} </p>
+                <p> {{ item.menuCategory.displayOrder }} </p>
+                <hr />
             </div>
         </div>
 
