@@ -49,7 +49,9 @@ var filesToCache = [
     '/images/icons/icons8-for-you-filled-256.png',
     '/images/icons/icons8-for-you-filled-32.png',
     '/images/icons/icons8-for-you-filled-500.png',
-    '/images/icons/icons8-info.svg'
+    '/images/icons/icons8-info.svg',
+    '/images/icons/icons8-menu.svg',
+    '/images/icons/icons8-home.svg'
 ];
 
 // Install and cache application files

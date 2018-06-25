@@ -200,8 +200,7 @@ body {
     }
 
     .roundButton.home {
-        /*TODO change icon*/
-        background: url(/images/icons/icons8-menu.svg) center center no-repeat;
+        background: url(/images/icons/icons8-home.svg) center center no-repeat;
         background-color: #444444;
         left: 15%;
         top: 90%;
