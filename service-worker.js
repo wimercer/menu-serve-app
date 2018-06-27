@@ -77,6 +77,8 @@ self.addEventListener('install', function (event) {
                 );
             })
     );
+
+    console.log('[ServiceWorker] ...finished installing');
 });
 
 // Fetch files from cache or server
@@ -96,6 +98,8 @@ self.addEventListener('fetch', function (event) {
                 return fetch(event.request);
             })
     );
+
+    console.log('[ServiceWorker] ...finished fetching');
 });
 
 self.addEventListener('activate', function (event) {
@@ -129,6 +133,8 @@ self.addEventListener('activate', function (event) {
                 );
             })
     );
+
+    console.log('[ServiceWorker] ...activated');
 });
 
 // TODO:
