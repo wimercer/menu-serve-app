@@ -20,10 +20,13 @@
     var app = {
 
         isLoading: true,
+
         spinner: document.querySelector('.loader'),
-        about: document.getElementById('about'),
-        close: document.getElementsByClassName("close")[0],
         slick: document.getElementById('slick'),
+        about: document.getElementById('about'),
+
+        aboutButton: document.getElementById('aboutButton'),
+        closeButton: document.getElementsByClassName("closeButton")[0],
         homePageButton: document.getElementById('butGoToHomePage'),
         menuPageButton: document.getElementById('butGoToMenuPage')
     };
@@ -35,7 +38,7 @@
      ****************************************************************************/
     window.onclick = function (event) {
         if (event.target === app.about) {
-            app.about.style.display = "none";
+            app.aboutButton.style.display = "none";
         }
     }
 
@@ -55,11 +58,11 @@
         });
     }
 
-    app.about.addEventListener('click', function () {
+    app.aboutButton.addEventListener('click', function () {
         about.style.display = "block";
     });
 
-    app.close.addEventListener('click', function () {
+    app.closeButton.addEventListener('click', function () {
         about.style.display = "none";
     });
 
@@ -106,7 +109,7 @@
     var menuItems = new Vue({
         el: '#menu-items',
         data: {
-            
+
             menuItems: []
         },
         created() {
@@ -124,7 +127,7 @@
                         this.menuItems = json;
                     });
             }
-        }     
+        }
     })
 
     /************************************************************************
