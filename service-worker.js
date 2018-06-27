@@ -77,8 +77,6 @@ self.addEventListener('install', function (event) {
                 );
             })
     );
-
-    console.log('[ServiceWorker] ...finished installing');
 });
 
 // Fetch files from cache or server
@@ -131,8 +129,6 @@ self.addEventListener('activate', function (event) {
                 );
             })
     );
-
-    console.log('[ServiceWorker] ...activated');
 });
 
 // TODO:
