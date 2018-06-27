@@ -15,16 +15,16 @@
  */
 
 @media only screen and (min-width: 200px) {
-    .roundButton.menu {
-        background-size: 40px 40px;
+    .roundButton {
+        background-size: 40px 40px !important;
     }
     .slick-dots li button:before {
         font-size: 30px !important;
     }
 
 @media only screen and (min-width: 600px) {
-    .roundButton.menu {
-        background-size: 70px 70px;
+    .roundButton {
+        background-size: 70px 70px !important;
     }
     .slick-dots li button:before {
         font-size: 60px !important;
@@ -33,8 +33,8 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .roundButton.menu {
-        background-size: 100px 100px;
+    .roundButton {
+        background-size: 100px 100px !important;
     }
     .slick-dots li button:before {
         font-size: 90px !important;
@@ -43,7 +43,7 @@
 }
 
 @media only screen and (min-device-height: 900px) {
-    .roundButton.menu {
+    .roundButton {
         left: 85%;
         top: 80%;
     }
@@ -151,7 +151,7 @@ body {
         cursor: pointer;
     }
 
-    .header #butAbout {
+    .header #aboutButton {
         background: url(/images/icons/icons8-info.svg) center center no-repeat;
     }
 
@@ -207,15 +207,15 @@ body {
         position: fixed;
     }
 
-.close {
+.closeButton {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-    .close:hover,
-    .close:focus {
+    .closeButton:hover,
+    .closeButton:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
