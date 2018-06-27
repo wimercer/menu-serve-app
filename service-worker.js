@@ -98,8 +98,6 @@ self.addEventListener('fetch', function (event) {
                 return fetch(event.request);
             })
     );
-
-    console.log('[ServiceWorker] ...finished fetching');
 });
 
 self.addEventListener('activate', function (event) {
