@@ -120,6 +120,7 @@ self.addEventListener('activate', function (event) {
             );
         }),
 
+        // TODO : Remove ??? 
         caches.open(menuDataCacheName)
             .then(function (cache) {
                 console.log('[ServiceWorker] ...refreshed and opened cache: ' + menuDataCacheName);
@@ -130,6 +131,27 @@ self.addEventListener('activate', function (event) {
             })
     );
 });
+
+self.addEventListener('load', function (event) {
+
+    // FIND A REFERENCE
+
+    console.log('[ServiceWorker] Loading...');
+
+    event.waitUntil(
+
+        // TODO : Remove ??? 
+        caches.open(menuDataCacheName)
+            .then(function (cache) {
+                console.log('[ServiceWorker] ...refreshed and opened cache: ' + menuDataCacheName);
+
+                return cache.add(
+                    new Request(menuDataURL)
+                );
+            })
+    );
+});
+
 
 // TODO:
 // https://developers.google.com/web/fundamentals/primers/service-workers/
