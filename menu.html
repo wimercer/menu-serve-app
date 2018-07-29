@@ -43,15 +43,15 @@
         <!-- fetched data -->
 
         <div id="menu-items">
-            <div v-for="item in menuItems">
-                <p> {{ item.id }} </p>
-                <p> {{ item.shortDescription }} </p>
-                <p> {{ item.details }} </p>
-                <p> {{ item.price }} </p>
-                <p> {{ item.menuCategory.id }} </p>
-                <p> {{ item.menuCategory.name }} </p>
-                <p> {{ item.menuCategory.displayOrder }} </p>
-                <hr />
+            <div v-for="item in menuItems" class="menu-item">
+                <div class="id">{{ item.id }}</div>
+                <div class="short-description">{{ item.shortDescription }}</div>
+                <div class="image">Image</div>
+                <div class="details">{{ item.details }}</div>
+                <div class="price">£{{ item.price }}</div>
+                <div class="menu-category-id">{{ item.menuCategory.id }}</div>
+                <div class="menu-category-name">{{ item.menuCategory.name }}</div>
+                <div class="menu-category-order">{{ item.menuCategory.displayOrder }}</div>
             </div>
         </div>
 
