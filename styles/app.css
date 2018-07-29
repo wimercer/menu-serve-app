@@ -18,9 +18,11 @@
     .roundButton {
         background-size: 40px 40px !important;
     }
+
     .slick-dots li button:before {
         font-size: 30px !important;
     }
+}
 
 @media only screen and (min-width: 600px) {
     .roundButton {
@@ -175,6 +177,76 @@ body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+.menu-item {
+    /*padding: 16px;*/
+    /*position: relative;*/
+    /*box-sizing: border-box;*/
+    background: #fff;
+    border-radius: 2px;
+    margin: 16px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    clear: both;
+    display: block;
+    overflow: auto;
+}
+
+    .menu-item .id {
+        display: none;
+    }
+
+    .menu-item .image {    
+        border-style: dashed;
+        width: 150px;
+        height: 100px;
+        /*position: relative;*/
+        margin: 0;
+        padding: 0 0 10px 10px;
+        /*background-color: blue;*/
+        float: left;
+        clear: right;
+    }
+
+    .menu-item .short-description {
+        font-weight: 700;
+        display: block;
+        /*float: left;*/
+        /*text-align: left;*/
+        /*background-color: yellow;*/
+        padding: 10px 0 10px 10px;
+        /*clear: left;*/
+    }
+
+    .menu-item .details {
+        /*background-color: red;*/
+        float: left;
+        margin-left: 10px;
+        max-width: 60%;
+        width: 60%;
+        font-weight: 200;
+        font-size: 80%;
+        /*clear:left;*/
+    }
+
+    .menu-item .price {
+        float: right;
+        /*background-color: green;*/
+        margin: 0 10px;
+        font-weight: 700;
+        /*clear: both;*/
+    }
+
+    .menu-item .menu-category-id {
+        display: none;
+    }
+
+    .menu-item .menu-category-name {
+        display: none;
+    }
+
+    .menu-item .menu-category-order {
+        display: none;
+    }
 
 /* buttons and controls */
 .roundButton {
