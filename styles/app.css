@@ -178,7 +178,7 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-.menu-items {
+#menu-items {
     padding-bottom: 200px
 }
 
