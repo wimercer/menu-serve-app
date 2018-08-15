@@ -178,6 +178,10 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+.menu-items {
+    padding-bottom: 200px
+}
+
 .menu-item {
     /*padding: 16px;*/
     /*position: relative;*/
