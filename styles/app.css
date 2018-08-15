@@ -169,6 +169,7 @@ body {
 
 .main {
     padding-top: 60px;
+    padding-bottom: 200px;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -190,10 +191,6 @@ body {
     display: block;
     overflow: auto;
 }
-
-    .menu-item .id {
-        display: none;
-    }
 
     .menu-item .image {    
         border-style: dashed;
@@ -236,17 +233,50 @@ body {
         /*clear: both;*/
     }
 
-    .menu-item .menu-category-id {
-        display: none;
+
+.menu-category {
+    /*padding: 16px;*/
+    /*position: relative;*/
+    /*box-sizing: border-box;*/
+    background: #444444;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    clear: both;
+}
+
+.menu-category-name {
+    /*background-color: green;*/
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    overflow: auto;
+}
+
+    .menu-category-name:hover {
+        background-color: #ccc;
     }
 
-    .menu-item .menu-category-name {
-        display: none;
+    .menu-category-name:after {
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 10px;
+        float: right;
     }
 
-    .menu-item .menu-category-order {
-        display: none;
+    .active-menu-category-name:after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
     }
+
+
+.menu-category-content {
+    display: none;
+    overflow: hidden;
+}
 
 /* buttons and controls */
 .roundButton {

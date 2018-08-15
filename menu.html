@@ -42,17 +42,70 @@
 
         <!-- fetched data -->
 
+        <!--TODO: find a better way to group by menu category name-->
+
         <div id="menu-items">
-            <div v-for="item in menuItems" class="menu-item">
-                <div class="id">{{ item.id }}</div>
-                <div class="short-description">{{ item.shortDescription }}</div>
-                <div class="image">Image</div>
-                <div class="details">{{ item.details }}</div>
-                <div class="price">£{{ item.price.toFixed(2) }}</div>
-                <div class="menu-category-id">{{ item.menuCategory.id }}</div>
-                <div class="menu-category-name">{{ item.menuCategory.name }}</div>
-                <div class="menu-category-order">{{ item.menuCategory.displayOrder }}</div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Starters</button>
+
+                <div class="menu-category-content">
+                    <starters v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </starters>
+                </div>
             </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Mains</button>
+
+                <div class="menu-category-content">
+                    <mains v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </mains>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Deserts</button>
+
+                <div class="menu-category-content">
+                    <deserts v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </deserts>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Sides</button>
+
+                <div class="menu-category-content">
+                    <sides v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </sides>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Drinks</button>
+
+                <div class="menu-category-content">
+                    <drinks v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </drinks>
+                </div>
+            </div>
+
         </div>
 
     </main>
