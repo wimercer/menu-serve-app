@@ -28,7 +28,10 @@
         aboutButton: document.getElementById('aboutButton'),
         closeButton: document.getElementsByClassName("closeButton")[0],
         homePageButton: document.getElementById('butGoToHomePage'),
-        menuPageButton: document.getElementById('butGoToMenuPage')
+        menuPageButton: document.getElementById('butGoToMenuPage'),
+        categories: document.getElementsByClassName("menu-category-name"),
+        allContents: document.getElementsByClassName("menu-category-content")
+
     };
 
     /*****************************************************************************
@@ -42,6 +45,42 @@
         }
     }
 
+    window.onload = function () {
+
+        for (let i = 0; i < app.categories.length; i++) {
+
+            app.categories[i].addEventListener('click', function (e) {
+                
+                // get associated "menu-category-content"
+                var content = e.target.nextElementSibling;
+
+                if (content.style.display === "block") {
+
+                    content.style.display = "none";
+                    this.classList.toggle('active-menu-category-name');
+
+                } else {
+
+                    // hide all menu-category-contents
+                    for (let i = 0; i < app.allContents.length; i++) {
+                        app.allContents[i].style.display = "none";
+                    }
+
+                    // remove active category content
+                    for (let i = 0; i < app.categories.length; i++) {
+                        app.categories[i].classList.remove('active-menu-category-name');
+                    }
+
+                    // set active category and content
+                    this.classList.toggle('active-menu-category-name');
+
+                    // display 'menu-category-content' associated to clicked 'menu-category-name'
+                    content.style.display = "block";
+                }
+            });
+        }
+    }
+    
     if(app.homePageButton !== null) {
 
         app.homePageButton.addEventListener('click', function () {
@@ -105,6 +144,48 @@
      * Methods for dealing with the model
      *
      ****************************************************************************/
+
+    // TODO: find a better way to group data on category name
+
+    Vue.component('starters', {
+        props: ['item'],
+        template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 1">' +
+                    '<div class="short-description">{{ item.shortDescription }}</div>' +
+                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
+                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+    })
+
+    Vue.component('mains', {
+        props: ['item'],
+        template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 2">' +
+                    '<div class="short-description">{{ item.shortDescription }}</div>' +
+                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
+                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+    })
+
+    Vue.component('deserts', {
+        props: ['item'],
+        template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 3">' +
+                    '<div class="short-description">{{ item.shortDescription }}</div>' +
+                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
+                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+    })
+
+    Vue.component('sides', {
+        props: ['item'],
+        template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 4">' +
+                    '<div class="short-description">{{ item.shortDescription }}</div>' +
+                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
+                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+    })
+
+    Vue.component('drinks', {
+        props: ['item'],
+        template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 5">' +
+                    '<div class="short-description">{{ item.shortDescription }}</div>' +
+                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
+                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+    })
 
     var menuItems = new Vue({
         el: '#menu-items',
