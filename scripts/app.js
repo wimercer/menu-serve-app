@@ -151,46 +151,50 @@
         props: ['item'],
         template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 1">' +
                     '<div class="short-description">{{ item.shortDescription }}</div>' +
-                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
-                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+                    '<div class="image"><img :src="\'data: image / jpeg; base64,\' + item.image"></img></div>' +
+                    '<div class="details">{{ item.details }}</div>' +
+                    '<div class="price">£{{ item.price.toFixed(2) }}</div></div>'
     })
 
     Vue.component('mains', {
         props: ['item'],
         template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 2">' +
                     '<div class="short-description">{{ item.shortDescription }}</div>' +
-                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
-                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+                    '<div class="image"><img :src="\'data: image / jpeg; base64,\' + item.image"></img></div>' +
+                    '<div class="details">{{ item.details }}</div>' +
+                    '<div class="price">£{{ item.price.toFixed(2) }}</div></div>'
     })
 
     Vue.component('deserts', {
         props: ['item'],
         template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 3">' +
                     '<div class="short-description">{{ item.shortDescription }}</div>' +
-                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
-                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+                    '<div class="image"><img :src="\'data: image / jpeg; base64,\' + item.image"></img></div>' +
+                    '<div class="details">{{ item.details }}</div>' +
+                    '<div class="price">£{{ item.price.toFixed(2) }}</div></div>'
     })
 
     Vue.component('sides', {
         props: ['item'],
         template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 4">' +
                     '<div class="short-description">{{ item.shortDescription }}</div>' +
-                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
-                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+                    '<div class="image"><img :src="\'data: image / jpeg; base64,\' + item.image"></img></div>' +
+                    '<div class="details">{{ item.details }}</div>' +
+                    '<div class="price">£{{ item.price.toFixed(2) }}</div></div>'
     })
 
     Vue.component('drinks', {
         props: ['item'],
         template: '<div class="menu-item" v-if="item.menuCategory.displayOrder === 5">' +
                     '<div class="short-description">{{ item.shortDescription }}</div>' +
-                    '<div class="image">Image</div> <div class="details">{{ item.details }}</div>' +
-                    ' <div class="price">£{{ item.price.toFixed(2) }}</div></div>'
+                    '<div class="image"><img :src="\'data: image / jpeg; base64,\' + item.image"></img></div>' +
+                    '<div class="details">{{ item.details }}</div>' +
+                    '<div class="price">£{{ item.price.toFixed(2) }}</div></div>'
     })
 
     var menuItems = new Vue({
         el: '#menu-items',
         data: {
-
             menuItems: []
         },
         created() {
