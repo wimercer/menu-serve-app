@@ -195,8 +195,8 @@ body {
     overflow: auto;
 }
 
-    .menu-item .image {    
-        border-style: dashed;
+    .menu-item .image {
+        /*border-style: dashed;*/
         width: 150px;
         height: 100px;
         /*position: relative;*/
@@ -205,7 +205,15 @@ body {
         /*background-color: blue;*/
         float: left;
         clear: right;
+        
     }
+
+        .menu-item .image img {
+            width: 150px;
+            height: 100px;
+            max-width: 100%;
+            max-height: 100%;
+        }
 
     .menu-item .short-description {
         font-weight: 700;
