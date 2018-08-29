@@ -22,7 +22,9 @@
     .slick-dots li button:before {
         font-size: 30px !important;
     }
+}
 
+@media only screen and (max-width: 400px) {
     .menu-item .image {
         width: 100% !important;
         height: 100% !important;
