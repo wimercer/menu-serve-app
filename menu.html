@@ -9,25 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#444444" />
 
-    <title>Menu serve</title>
-    <!--TODO: add homepage url-->
+    <title>Menu</title>
+    <!--TODO: add menu url-->
     <!--<link rel="canonical" href="" type="text/html">-->
     <link rel="icon" href="/images/icons/favicon.ico" type="image/x-icon" />
-    <link rel="manifest" href="/manifest.json" type="application/json+oembed">
+    <!--<link rel="manifest" href="/manifest.json" type="application/json+oembed">-->
 
     <link rel="stylesheet" href="/styles/app.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/slick.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/slick-theme.css" type="text/css" />
 
     <script type="text/javascript" src="/scripts/jquery-3.3.1.min.js"></script>
 
     <!-- Add to home screen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--<meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Menu serve">
     <link rel="apple-touch-icon" href="/images/icons/icons8-for-you-filled-152.png">
     <meta name="msapplication-TileImage" content="/images/icons/icons8-for-you-filled-144.png">
-    <meta name="msapplication-TileColor" content="#444">
+    <meta name="msapplication-TileColor" content="#444">-->
 
 </head>
 
@@ -42,24 +40,81 @@
     <!-- main body -->
     <main class="main">
 
-        <!-- carousel -->
-        <div class="slick-container">
-            <div class="slick" id="slick">
-                <!-- 1 - menu home -->
-                <div><img class="slick-content" src="/images/home/1-menu-cover.jpg"></div>
-                <!-- 2 - promo -->
-                <div><img class="slick-content" src="/images/home/2-promo.jpg"></div>
-                <!-- 3 - promo -->
-                <div><img class="slick-content" src="/images/home/3-promo.jpg"></div>
+        <!-- fetched data -->
+
+        <!--TODO: find a better way to group by menu category name-->
+
+        <div id="menu-items">
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Starters</button>
+
+                <div class="menu-category-content">
+                    <starters v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </starters>
+                </div>
             </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Mains</button>
+
+                <div class="menu-category-content">
+                    <mains v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </mains>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Deserts</button>
+
+                <div class="menu-category-content">
+                    <deserts v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </deserts>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Sides</button>
+
+                <div class="menu-category-content">
+                    <sides v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </sides>
+                </div>
+            </div>
+
+            <div class="menu-category">
+
+                <button class="menu-category-name">Drinks</button>
+
+                <div class="menu-category-content">
+                    <drinks v-for="item in menuItems"
+                              v-bind:item="item"
+                              v-bind:key="item.ID">
+                    </drinks>
+                </div>
+            </div>
+
         </div>
+
     </main>
 
     <!-- Controls and components -->
-   
-    <!-- round menu button -->
-    <div class="roundButton menu" id="butGoToMenuPage"></div>
-   
+    
+    <!-- round home button -->
+    <div class="roundButton home" id="butGoToHomePage"></div>
+
     <!-- about modal -->
     <div id="about" class="modal">
         <div class="modal-content">
@@ -89,7 +144,6 @@
     <!-- scripts -->
     <script type="text/javascript" src="/scripts/vue.min.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/slick.min.js"></script>
 
 </body>
 </html>
